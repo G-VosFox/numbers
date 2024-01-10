@@ -19,6 +19,8 @@ public class Drag : MonoBehaviour
     public Sprite sprite8;
     public Sprite sprite9;
     public Sprite sprite0;
+    Vector3 screenPoint;
+    Vector3 offset;
 
     private void Update()
     {
@@ -63,15 +65,22 @@ public class Drag : MonoBehaviour
             spriteRenderer.sprite = sprite0;
         }
     }
+    void OnMouseDown()
+    {
+        screenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);
+
+        offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
+    }
     void OnMouseDrag()
     {
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        transform.position = mousePosition;
+        Vector3 curScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
+        Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint) + offset;
+        transform.position = curPosition;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log("yas");
-        if (collision.gameObject.CompareTag("Number"))
+        if (collision.gameObject.tag == "Number")
         {
             Debug.Log("yhas queen");
 

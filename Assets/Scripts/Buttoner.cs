@@ -8,19 +8,9 @@ using UnityEngine.EventSystems;
 public class buttoner : MonoBehaviour
 {
     public GameObject number;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
     Vector2 place = new Vector2(7, 2);
-    public void Button1()
+    public void Button1()//these things spawn the prefab thing with the correct value
     {
         number.GetComponent<Drag>().value = 1;
         Instantiate(number, place, Quaternion.identity);

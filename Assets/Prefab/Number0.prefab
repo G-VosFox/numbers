@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4463714760266985406}
   - component: {fileID: 6268740335250155150}
   - component: {fileID: 3453221767382179221}
+  - component: {fileID: 4034209880568678811}
   m_Layer: 0
   m_Name: Number0
   m_TagString: Number
@@ -157,7 +158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ff0fb1ef437c5f40b20e014460dbf96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  value: 1
+  value: 2
   spriteRenderer: {fileID: 3613172667072774686}
   sprite1: {fileID: 21300000, guid: 40a43e6aac965524a8f12bba0e91d940, type: 3}
   sprite2: {fileID: 21300000, guid: 74ead49654b63864282a96d05f9a0a25, type: 3}
@@ -169,3 +170,30 @@ MonoBehaviour:
   sprite8: {fileID: 21300000, guid: 8aeaea58d3ae2d14d88747138ff42c08, type: 3}
   sprite9: {fileID: 21300000, guid: 470c8a8d7cb5c8c4ca2ca720129584de, type: 3}
   sprite0: {fileID: 21300000, guid: e5623b5a2b2d47340a67d7d651eab3ff, type: 3}
+--- !u!50 &4034209880568678811
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1403221614911135033}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
