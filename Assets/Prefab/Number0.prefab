@@ -117,7 +117,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -159,6 +159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 2
+  newValue: 0
   spriteRenderer: {fileID: 3613172667072774686}
   sprite1: {fileID: 21300000, guid: 40a43e6aac965524a8f12bba0e91d940, type: 3}
   sprite2: {fileID: 21300000, guid: 74ead49654b63864282a96d05f9a0a25, type: 3}
@@ -170,6 +171,7 @@ MonoBehaviour:
   sprite8: {fileID: 21300000, guid: 8aeaea58d3ae2d14d88747138ff42c08, type: 3}
   sprite9: {fileID: 21300000, guid: 470c8a8d7cb5c8c4ca2ca720129584de, type: 3}
   sprite0: {fileID: 21300000, guid: e5623b5a2b2d47340a67d7d651eab3ff, type: 3}
+  number: {fileID: 1403221614911135033}
 --- !u!50 &4034209880568678811
 Rigidbody2D:
   serializedVersion: 4
@@ -178,7 +180,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1403221614911135033}
-  m_BodyType: 2
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0

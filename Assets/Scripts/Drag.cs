@@ -8,6 +8,7 @@ using UnityEngine.EventSystems;
 public class Drag : MonoBehaviour
 {
     public int value = 1;
+    public int newValue;
     public SpriteRenderer spriteRenderer;
     public Sprite sprite1;
     public Sprite sprite2;
@@ -21,10 +22,12 @@ public class Drag : MonoBehaviour
     public Sprite sprite0;
     Vector3 screenPoint;
     Vector3 offset;
+    public GameObject number;
 
     private void Update()
     {
-        if (value == 1)
+
+        if (value == 1)//to get the corect number on the sprite(prob ganna change later)
         {
             spriteRenderer.sprite = sprite1;
         }
@@ -77,14 +80,18 @@ public class Drag : MonoBehaviour
         Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint) + offset;
         transform.position = curPosition;
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
-        Debug.Log("yas");
-        if (collision.gameObject.tag == "Number")
+        if (collision.collider.tag == "Number")
         {
-            Debug.Log("yhas queen");
-
+            newValue = value + collision.gameObject.GetComponent<Drag>().value;//value of new num
             Vector2 midPoint = (transform.position + collision.transform.position) / 2;//position of new num
+
+            value = newValue;
+            Instantiate(number, midPoint, Quaternion.identity);
+
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
         }
     }
 }
