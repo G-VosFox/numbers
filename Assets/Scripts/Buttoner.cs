@@ -9,11 +9,11 @@ public class buttoner : MonoBehaviour
 {
     public GameObject number;
 
-    Vector2 place = new Vector2(7, 2);
+    Vector2 place = new Vector2(7, 2);//the spawn position for the number
     public void Button1()//these things spawn the prefab thing with the correct value
     {
-        number.GetComponent<Drag>().value = 1;
-        Instantiate(number, place, Quaternion.identity);
+        number.GetComponent<Drag>().value = 1;//change value to corispont to the pressed button
+        Instantiate(number, place, Quaternion.identity);//spawn the new number
     }
     public void Button2()
     {
