@@ -8,56 +8,74 @@ using UnityEngine.EventSystems;
 public class buttoner : MonoBehaviour
 {
     public GameObject number;
+    int[] buttonNum = new int[2];
+    public int numberAmountCount = 0;
+    public int valueInt;
 
     Vector2 place = new Vector2(7, 2);//the spawn position for the number
+    
     public void Button1()//these things spawn the prefab thing with the correct value
     {
-        number.GetComponent<Drag>().value = 1;//change value to corispont to the pressed button
-        Instantiate(number, place, Quaternion.identity);//spawn the new number
+        buttonNum[numberAmountCount] = '1';
+        numberAmountCount++;
     }
     public void Button2()
     {
-        number.GetComponent<Drag>().value = 2;
-        Instantiate(number, place, Quaternion.identity);
+        buttonNum[numberAmountCount] = '2';
+        numberAmountCount++;
     }
     public void Button3()
     {
-        number.GetComponent<Drag>().value = 3;
-        Instantiate(number, place, Quaternion.identity);
+        buttonNum[numberAmountCount] = '3';
+        numberAmountCount++;
     }
     public void Button4()
     {
-        number.GetComponent<Drag>().value = 4;
-        Instantiate(number, place, Quaternion.identity);
+        buttonNum[numberAmountCount] = '4';
+        numberAmountCount++;
     }
     public void Button5()
     {
-        number.GetComponent<Drag>().value = 5;
-        Instantiate(number, place, Quaternion.identity);
+        buttonNum[numberAmountCount] = '5';
+        numberAmountCount++;
     }
     public void Button6()
     {
-        number.GetComponent<Drag>().value = 6;
-        Instantiate(number, place, Quaternion.identity);
+        buttonNum[numberAmountCount] = '6';
+        numberAmountCount++;
     }
     public void Button7()
     {
-        number.GetComponent<Drag>().value = 7;
-        Instantiate(number, place, Quaternion.identity);
+        buttonNum[numberAmountCount] = '7';
+        numberAmountCount++;
     }
     public void Button8()
     {
-        number.GetComponent<Drag>().value = 8;
-        Instantiate(number, place, Quaternion.identity);
+        buttonNum[numberAmountCount] = '8';
+        numberAmountCount++;
     }
     public void Button9()
     {
-        number.GetComponent<Drag>().value = 9;
-        Instantiate(number, place, Quaternion.identity);
+        buttonNum[numberAmountCount] = '9';
+        numberAmountCount++;
     }
     public void Button0()
     {
-        number.GetComponent<Drag>().value = 0;
+        buttonNum[numberAmountCount] = '0';
+        numberAmountCount++;
+    }
+    public void Enter()
+    {
+        Debug.Log(buttonNum[0]);
+        if (numberAmountCount == 1)
+        {
+            valueInt = buttonNum[0];
+        }
+        else if (numberAmountCount == 2)
+        {
+            valueInt = buttonNum[1] * 10 + buttonNum[0];
+        }
+        number.GetComponent<Drag>().value = valueInt;
         Instantiate(number, place, Quaternion.identity);
     }
 }
