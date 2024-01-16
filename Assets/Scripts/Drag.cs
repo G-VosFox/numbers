@@ -28,10 +28,10 @@ public class Drag : MonoBehaviour
         {
             HowMany();
 
-            Vector2 tenSpot = new Vector2 (transform.position.x - 1, transform.position.y);
+            Vector2 tenSpot = new(transform.position.x - 1, transform.position.y);
             tenValue = tenAmount * 10;
 
-            Vector2 oneSpot = new Vector2 (transform.position.x + 1, transform.position.y);
+            Vector2 oneSpot = new(transform.position.x + 1, transform.position.y);
             oneValue = oneAmount;
 
             value = tenValue;
@@ -51,13 +51,13 @@ public class Drag : MonoBehaviour
     }
     void OnMouseDrag()
     {
-        Vector3 curScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);//get rellative mouse position
+        Vector3 curScreenPoint = new(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);//get rellative mouse position
         Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint) + offset; //mouse position + the offset
         transform.position = curPosition;//place it correctly
     }
     private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.collider.tag == "Number")
+        if (collision.collider.CompareTag("Number"))
         {
             newValue = value + collision.gameObject.GetComponent<Drag>().value;//value of new num
             Vector2 midPoint = (transform.position + collision.transform.position) / 2;//position of new num
@@ -74,7 +74,7 @@ public class Drag : MonoBehaviour
         oneAmount = value;
         while (oneAmount > 10)
         {
-            oneAmount = value - 10;
+            oneAmount -= 10;
             tenAmount++;
         }
     }

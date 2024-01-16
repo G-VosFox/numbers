@@ -1496,7 +1496,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   number: {fileID: 1403221614911135033, guid: 57ef9c0f9f71cdd4f93d52270b102dd9, type: 3}
   numberAmountCount: 0
-  valueString: 
   valueInt: 0
 --- !u!1 &1348308508
 GameObject:
