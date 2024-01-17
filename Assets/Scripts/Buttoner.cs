@@ -11,6 +11,7 @@ public class buttoner : MonoBehaviour
     readonly int[] buttonNum = new int[10];
     public int numberAmountCount = 0;
     public int valueInt;
+    public bool minus = false;
 
     Vector2 place = new(7, 2);//the spawn position for the number
 
@@ -69,6 +70,17 @@ public class buttoner : MonoBehaviour
         buttonNum[numberAmountCount] = 0;
         numberAmountCount++;
     }
+    public void Min()
+    {
+        if (minus == false)
+        {
+            minus = true;
+        }
+        else if (minus == true)
+        {
+            minus = false;
+        }
+    }
     public void Enter()
     {
         if (numberAmountCount == 1)
@@ -79,10 +91,23 @@ public class buttoner : MonoBehaviour
         {
             valueInt = buttonNum[0] * 10 + buttonNum[1];
         }
+        else if (numberAmountCount == 3)
+        {
+            valueInt = buttonNum[0] * 100 + buttonNum[1] * 10 + buttonNum[2];
+        }
+        else if (numberAmountCount == 4)
+        {
+            valueInt = buttonNum[0] * 1000 + buttonNum[1] * 100 + buttonNum[2] * 10 + buttonNum[3];
+        }
+
+        if (minus == true)
+        {
+            valueInt = -valueInt;
+        }
         number.GetComponent<Drag>().value = valueInt;
         Instantiate(number, place, Quaternion.identity);
         numberAmountCount = 0;
         valueInt = 0;
-
+        minus = false;
     }
 }

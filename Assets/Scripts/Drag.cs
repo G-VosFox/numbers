@@ -11,38 +11,22 @@ public class Drag : MonoBehaviour
 {
     public int value = 1;
     public int newValue;
-    public int tenAmount = 0;
-    public int oneAmount;
-    public int tenValue;
-    public int oneValue;
+    public int bigAmount = 0;
+    public int smallAmount;
+    public int bigValue;
+    public int smallValue;
     Vector3 screenPoint;
     Vector3 offset;
+    Vector2 smallSpot;
+    Vector2 bigSpot;
     public TMP_Text showValue;
     public GameObject number;
 
     private void Update()
     {
         showValue.text = "" + value;//show the correct value
-
-        if (Input.GetMouseButtonDown(1) && value >= 11)
-        {
-            HowMany();
-
-            Vector2 tenSpot = new(transform.position.x - 1, transform.position.y);
-            tenValue = tenAmount * 10;
-
-            Vector2 oneSpot = new(transform.position.x + 1, transform.position.y);
-            oneValue = oneAmount;
-
-            value = tenValue;
-            Instantiate(number, tenSpot, Quaternion.identity);
-
-            value = oneValue;
-            Instantiate(number, oneSpot, Quaternion.identity);
-
-            Destroy(gameObject);
-        }
     }
+
     void OnMouseDown()
     {
         screenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);//alllows you to drag number without snapping to the middle
@@ -55,6 +39,46 @@ public class Drag : MonoBehaviour
         Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint) + offset; //mouse position + the offset
         transform.position = curPosition;//place it correctly
     }
+    private void OnMouseOver()
+    {
+        if (Input.GetMouseButtonDown(1) && value > 10 && value < 100 && value != 20 && value != 30 && value != 40 && value != 50 && value != 60 && value != 70 && value != 80 && value != 90)
+        {
+            HowManyTen();
+
+            bigSpot = new(transform.position.x - 1, transform.position.y);
+            bigValue = bigAmount * 10;
+
+            smallSpot = new(transform.position.x + 1, transform.position.y);
+            smallValue = smallAmount;
+
+            value = bigValue;
+            Instantiate(number, bigSpot, Quaternion.identity);
+
+            value = smallValue;
+            Instantiate(number, smallSpot, Quaternion.identity);
+
+            Destroy(gameObject);
+        }
+        else if (Input.GetMouseButtonDown(1) && value > 100 && value < 1000 && value != 200 && value != 300 && value != 400 && value != 500 && value != 600 && value != 700 && value != 800 && value != 900)
+        {
+            HowManyHunderd();
+
+            bigSpot = new(transform.position.x - 1, transform.position.y);
+            bigValue = bigAmount * 100;
+
+            smallSpot = new(transform.position.x + 1, transform.position.y);
+            smallValue = smallAmount;
+
+            value = bigValue;
+            Instantiate(number, bigSpot, Quaternion.identity);
+
+            value = smallValue;
+            Instantiate(number, smallSpot, Quaternion.identity);
+
+            Destroy(gameObject);
+        }
+    }
+
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.collider.CompareTag("Number"))
@@ -69,13 +93,22 @@ public class Drag : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    private void HowMany()
+    private void HowManyTen()
     {
-        oneAmount = value;
-        while (oneAmount > 10)
+        smallAmount = value;
+        while (smallAmount > 10)
         {
-            oneAmount -= 10;
-            tenAmount++;
+            bigAmount++;
+            smallAmount -= 10;
+        }
+    }
+    private void HowManyHunderd()
+    {
+        smallAmount = value;
+        while (smallAmount > 100)
+        {
+            bigAmount++;
+            smallAmount -= 100;
         }
     }
 }
