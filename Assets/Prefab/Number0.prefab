@@ -111,12 +111,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ff0fb1ef437c5f40b20e014460dbf96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  value: 1
+  value: 9
   newValue: 0
-  tenAmount: 0
-  oneAmount: 0
-  tenValue: 0
-  oneValue: 0
+  bigAmount: 0
+  smallAmount: 0
+  bigValue: 0
+  smallValue: 0
   showValue: {fileID: 4235841509383220663}
   number: {fileID: 1403221614911135033}
 --- !u!50 &4034209880568678811
@@ -210,7 +210,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 1
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5b0db6c7f304f91478cc1d2a6eaa58f3, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -277,6 +277,6 @@ MonoBehaviour:
   _SortingLayer: 0
   _SortingLayerID: 0
   _SortingOrder: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_renderer: {fileID: 5860319166216275500}
   m_maskType: 0
